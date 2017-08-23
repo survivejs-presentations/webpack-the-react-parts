@@ -24,7 +24,7 @@ import {
   TableHeaderItem,
   TableItem,
   S,
-  Text,
+  Text
 } from "spectacle";
 
 // Import image preloader util
@@ -67,42 +67,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading caps fit size={1}>
-            JavaScript Usage on Sites
-          </Heading>
-          <Markdown>
-            {`
-* 2011 - 38.2%
-* 2013 - 60.4%
-* 2015 - 70.5%
-* 2016 - 73.5%
-* Source: [W3Techs](http://w3techs.com/technologies/history_overview/javascript_library/all/y)
-        `}
-          </Markdown>
-        </Slide>
-
-        <Slide transition={["fade"]} transitionDuration={0}>
-          <Heading size={2} caps fit>
-            Inline JavaScript
-          </Heading>
-
-          <Appear fid="2">
-            <Heading size={2} caps fit textColor="tertiary">
-              AJAX (async)
-            </Heading>
-          </Appear>
-          <Appear fid="3" id="spa-dead">
-            <Heading size={2} caps fit>
-              Single Page Applications
-            </Heading>
-          </Appear>
-
-          <Heading size={2} caps fit textColor="white">
-            Universal Apps
-          </Heading>
-        </Slide>
-
-        <Slide transitionDuration={1} transition={["fade"]} transitionDuration={0}>
           <Heading size={2} caps fit>
             Inline JavaScript
           </Heading>
@@ -130,13 +94,19 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="black">
           <BlockQuote>
-            <Quote>If you're not universally rendering on the server you're doing it "wrong."</Quote>
+            <Quote>
+              If you're not universally rendering on the server you're doing it
+              "wrong."
+            </Quote>
           </BlockQuote>
         </Slide>
 
         <Slide transition={slideTransition} bgColor="black">
           <BlockQuote>
-            <Quote>You are losing money for you, your clients, your employers. All hail the Google god.</Quote>
+            <Quote>
+              You are losing money for you, your clients, your employers. All
+              hail the Google god.
+            </Quote>
           </BlockQuote>
         </Slide>
 
@@ -179,15 +149,20 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={10} textColor="black">Here's what the React Router docs have to say about it</Heading>
+          <Heading size={10} textColor="black">
+            Here's what the React Router docs have to say about it
+          </Heading>
           <Appear>
-            <Image src={images.ssrSplitting} margin="10px auto" height="550px" />
+            <Image
+              src={images.ssrSplitting}
+              margin="10px auto"
+              height="550px"
+            />
           </Appear>
           <Appear>
             <Quote textColor="tertiary">#ssr #splitting #godspeed</Quote>
           </Appear>
         </Slide>
-      
 
         <Slide transition={slideTransition}>
           <Heading size={2} caps fit>
@@ -224,7 +199,7 @@ export default class Presentation extends React.Component {
           <Heading size={8} caps fit textColor="white" margin="0 0 20px 0">
             Here's how we do it:
           </Heading>
-          
+
           <Appear>
             <CodePane
               lang="javascript"
@@ -250,7 +225,6 @@ res.send(\`
           </Appear>
         </Slide>
 
-
         <Slide transition={slideTransition} bgColor="black">
           <Heading size={8} caps fit textColor="white" margin="0 0 20px 0">
             Your component code couldn't be simpler:
@@ -274,8 +248,6 @@ export default connect(({ page }) => ({ page }))(MyComponent)
             />
           </Appear>
         </Slide>
-
-  
 
         <Slide transition={slideTransition} bgColor="black">
           <Appear>
@@ -321,7 +293,7 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
             </Heading>
           </Appear>
         </Slide>
-        
+
         <Slide transition={slideTransition}>
           <Heading size={1}>A few other things Universal does:</Heading>
           <List>
@@ -343,7 +315,9 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
             </Appear>
             <Appear>
               <ListItem>
-                {'Universal.render() === single entry point for both client/server'}
+                {
+                  "Universal.render() === single entry point for both client/server"
+                }
               </ListItem>
             </Appear>
           </List>
@@ -354,7 +328,7 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
             </Heading>
           </Appear>
         </Slide>
-        
+
         <Slide transition={slideTransition}>
           <Heading caps fit size={1}>
             Build Tools
