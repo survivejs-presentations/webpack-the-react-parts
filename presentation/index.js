@@ -178,10 +178,36 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
+          <Heading size={1}>Related Solutions</Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                <Link href="https://www.npmjs.com/package/create-react-app">
+                  create-react-app
+                </Link>{" "}
+                by Facebook
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <Link href="https://www.npmjs.com/package/nwb">nwb</Link> by
+                Jonny Buchanan
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <Link href="https://github.com/NYTimes/kyt">kyt</Link> by New
+                York Times
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
           <Heading size={2}>Optimization</Heading>
           <CodePane
-            lang="jsx"
-            source={require("raw-loader!../examples/demo.jsx")}
+            lang="js"
+            source={require("raw-loader!../examples/optimization.js")}
             margin="20px auto"
           />
         </Slide>
@@ -190,7 +216,7 @@ export default class Presentation extends React.Component {
           <Heading size={2}>Bundle splitting</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../examples/demo.jsx")}
+            source={require("raw-loader!../examples/bundle-splitting.js")}
             margin="20px auto"
           />
         </Slide>
@@ -199,7 +225,7 @@ export default class Presentation extends React.Component {
           <Heading size={2}>Code splitting</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../examples/demo.jsx")}
+            source={require("raw-loader!../examples/code-splitting.js")}
             margin="20px auto"
           />
         </Slide>
@@ -208,7 +234,7 @@ export default class Presentation extends React.Component {
           <Heading size={2}>React Through a CDN</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../examples/demo.jsx")}
+            source={require("raw-loader!../examples/cdn.js")}
             margin="20px auto"
           />
         </Slide>
@@ -329,57 +355,21 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition} bgColor="black">
-          <Heading size={8} caps fit textColor="white" margin="0 0 20px 0">
-            Here's how we do it:
-          </Heading>
-
-          <Appear>
-            <CodePane
-              lang="javascript"
-              source={`
-import { flushChunkNames } from 'react-universal-component/server'
-import flushChunks from 'webpack-flush-chunks'
-
-const app = ReactDOMServer.renderToString(<App />)
-const { js, styles, cssHash } = flushChunks(webpackStats, {
-  chunkNames: flushChunkNames()
-})
-
-res.send(\`
-  <html>
-    \$\{styles\}
-    <div id="root">\$\{app\}</div>
-    \$\{cssHash\}
-    \$\{js\}
-  </html>
-\`)
-            `}
-            />
-          </Appear>
+          <Heading size={2}>SSR with Code Splitting on Server Side</Heading>
+          <CodePane
+            lang="js"
+            source={require("raw-loader!../examples/ssr-with-code-splitting.js")}
+            margin="20px auto"
+          />
         </Slide>
 
         <Slide transition={slideTransition} bgColor="black">
-          <Heading size={8} caps fit textColor="white" margin="0 0 20px 0">
-            Your component code couldn't be simpler:
-          </Heading>
-
-          <Appear>
-            <CodePane
-              lang="javascript"
-              source={`
-import universal from 'react-universal-component'
-
-const UniversalComponent = universal(props => import(\`./\$\{props.page\}\`))
-
-const MyComponent = ({ page }) =>
-  <div>
-    <UniversalComponent page={page} />
-  </div>
-
-export default connect(({ page }) => ({ page }))(MyComponent)
-            `}
-            />
-          </Appear>
+          <Heading size={2}>SSR with Code Splitting on Component Side</Heading>
+          <CodePane
+            lang="js"
+            source={require("raw-loader!../examples/ssr-component.js")}
+            margin="20px auto"
+          />
         </Slide>
 
         <Slide transition={slideTransition} bgColor="black">
@@ -466,7 +456,7 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
           <Heading size={2}>Hot Module Replacement</Heading>
           <CodePane
             lang="jsx"
-            source={require("raw-loader!../examples/demo.jsx")}
+            source={require("raw-loader!../examples/hmr.js")}
             margin="20px auto"
           />
         </Slide>
