@@ -41,6 +41,8 @@ require("./custom.css");
 const slideTransition = ["slide"];
 const images = mapValues(
   {
+    commonschunk1: require("../images/commonschunk1.png"),
+    codeSplitting: require("../images/codesplitting.png"),
     survivejs: require("../images/survivejs.png"),
     ssrSplitting: require("../images/react-router-ssr-splitting.png")
   },
@@ -203,6 +205,52 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            <Link
+              href="https://survivejs.com/webpack/optimizing"
+              textColor="white"
+            >
+              Optimizing
+            </Link>
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/optimizing/analyzing-build-statistics">
+              Analyzing Build Statistics
+            </Link>
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                To know what your build consists of, generate{" "}
+                <b>build statistics</b>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Use <code>--json</code> for statistics
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Use <code>--profile</code> to capture timing information
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Node API gives access to statistics too and you can find a
+                couple of plugins
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Plenty of tools for analysis</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
         <Slide transition={slideTransition}>
           <Heading size={2}>Optimization</Heading>
           <CodePane
@@ -213,21 +261,175 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>Bundle splitting</Heading>
-          <CodePane
-            lang="jsx"
-            source={require("raw-loader!../examples/bundle-splitting.js")}
-            margin="20px auto"
-          />
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">
+              Feature Flags
+            </Link>
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                <code>DefinePlugin</code> replaces free variables. Babel can do
+                this too
+              </ListItem>
+            </Appear>
+          </List>
+          <Appear>
+            <CodePane lang="javascript">
+              {`let foo;
+
+// Not free due to "foo" above, not ok to replace
+if (foo === 'bar') { ... }
+
+// Free since you don't refer to "bar", ok to replace
+if (process.env.NODE_ENV === 'development') {
+  console.log('bar');
+}`}
+            </CodePane>
+          </Appear>
+          <List>
+            <Appear>
+              <ListItem>
+                <b>Exercise:</b> Set up <code>DefinePlugin</code> and replace as
+                above
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Bundle/code Splitting
+          </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>Code splitting</Heading>
-          <CodePane
-            lang="jsx"
-            source={require("raw-loader!../examples/code-splitting.js")}
-            margin="20px auto"
-          />
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/building/bundle-splitting">
+              Bundle Splitting
+            </Link>
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                Anti-pattern - <b>Single</b> bundle with <b>application</b> and{" "}
+                <b>vendor</b>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>First step - Separate into two bundles</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Second step - Apply hashes to file names bust cache
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <code>CommonsChunkPlugin</code> can do the job
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <code>AggressiveSplittingPlugin</code> etc. for more control
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            Separating Application and Vendor
+          </Heading>
+          <Image src={images.commonschunk1} margin="40px auto" height="364px" />
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            <code>CommonsChunkPlugin</code>
+          </Heading>
+          <CodePane lang="javascript">
+            {`module.exports = {
+  ...
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: isVendor,
+    }),
+  ]
+};
+
+function isVendor({ resource }) {
+  return resource && resource.indexOf('node_modules') >= 0 &&
+    resource.match(/\\.js$/);
+}`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/building/code-splitting">
+              Code Splitting
+            </Link>
+          </Heading>
+          <Image src={images.codeSplitting} margin="40px auto" height="364px" />
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <code>import()</code>
+          </Heading>
+          <CodePane lang="javascript">
+            {`import(
+  /* webpackChunkName: "optional-name" */ './module'
+).then(
+  module => {...}
+).catch(
+  error => {...}
+);
+`}
+          </CodePane>
+          <List>
+            <Appear>
+              <ListItem>
+                Familiar <code>Promise</code> patterns work here
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Consider{" "}
+                <Link href="https://www.npmjs.com/package/react-loadable">
+                  react-loadable
+                </Link>{" "}
+                ,{" "}
+                <Link href="https://www.npmjs.com/package/react-universal-component">
+                  react-universal-component
+                </Link>, etc.
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>Code Splitting Output</Heading>
+          <CodePane lang="javascript">
+            {`webpackJsonp([0], {
+  KMic: function(a, b, c) {
+    ...
+  },
+  co9Y: function(a, b, c) {
+    ...
+  },
+});`}
+          </CodePane>
+          <List>
+            <Appear>
+              <ListItem>
+                In addition, a small <code>Promise</code> based bit to load the
+                code
+              </ListItem>
+            </Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -354,8 +556,10 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide transition={slideTransition} bgColor="black">
-          <Heading size={2}>SSR with Code Splitting on Server Side</Heading>
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            SSR with Code Splitting on the Server Side
+          </Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../examples/ssr-with-code-splitting.js")}
@@ -363,8 +567,10 @@ export default class Presentation extends React.Component {
           />
         </Slide>
 
-        <Slide transition={slideTransition} bgColor="black">
-          <Heading size={2}>SSR with Code Splitting on Component Side</Heading>
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            SSR with Code Splitting on Components
+          </Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../examples/ssr-component.js")}
@@ -372,28 +578,29 @@ export default class Presentation extends React.Component {
           />
         </Slide>
 
-        <Slide transition={slideTransition} bgColor="black">
+        <Slide transition={slideTransition}>
           <Appear>
-            <Heading size={2} caps fit textColor="white" margin="12px 0">
+            <Heading size={2} caps fit margin="12px 0">
               Until now, this has been painful
             </Heading>
           </Appear>
 
           <Appear>
-            <Heading size={2} caps fit textColor="tertiary" margin="12px 0">
+            <Heading size={2} caps fit margin="12px 0">
               "Universal" now does the work of transporting rendered chunks
             </Heading>
           </Appear>
 
           <Appear>
-            <Heading size={2} caps fit textColor="white" margin="12px 0">
+            <Heading size={2} caps fit margin="12px 0">
               to the client for speedy synchronous renders
             </Heading>
           </Appear>
 
-          <CodePane
-            lang="javascript"
-            source={`
+          <Appear>
+            <CodePane
+              lang="javascript"
+              source={`
 import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
 
@@ -402,7 +609,8 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
   chunkNames: flushChunkNames()
 })
           `}
-          />
+            />
+          </Appear>
 
           <Appear>
             <Heading size={2} caps fit textColor="tertiary" margin="20px 0">
@@ -411,14 +619,17 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
           </Appear>
 
           <Appear>
-            <Heading size={6} textColor="white" margin="20px 0">
-              thanks <Text textColor="rgb(235, 78, 145)">@faceyspacey</Text>
+            <Heading size={6} margin="20px 0">
+              Thanks{" "}
+              <span style={{ color: "rgb(235, 78, 145)" }}>@faceyspacey</span>
             </Heading>
           </Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={1}>A few other things Universal does:</Heading>
+          <Heading size={1} fit>
+            A few other things Universal does:
+          </Heading>
           <List>
             <Appear>
               <ListItem>imports 2 files: js + stylesheet chunks</ListItem>
