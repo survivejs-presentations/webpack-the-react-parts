@@ -255,38 +255,45 @@ export default class Presentation extends React.Component {
           <Heading size={2}>Optimization</Heading>
           <List>
             <Appear>
-              <ListItem>TODO: Babel bits from the book</ListItem>
+              <ListItem>
+                <Link href="https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types">
+                  babel-plugin-transform-react-remove-prop-types
+                </Link>
+              </ListItem>
             </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">
-              Feature Flags
-            </Link>
-          </Heading>
-          <List>
             <Appear>
               <ListItem>
-                <code>DefinePlugin</code> replaces free variables. Babel can do
-                this too
+                <Link href="https://survivejs.com/webpack/optimizing/environment-variables">
+                  webpack <code>DefinePlugin</code>
+                </Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <Link href="https://www.npmjs.com/package/babel-plugin-transform-inline-environment-variables">
+                  babel-plugin-transform-inline-environment-variables
+                </Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <Link href="https://www.npmjs.com/package/babel-plugin-minify-replace">
+                  babel-plugin-minify-replace
+                </Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Minify using{" "}
+                <Link href="https://www.npmjs.com/package/uglifyjs-webpack-plugin">
+                  uglifyjs-webpack-plugin
+                </Link>,{" "}
+                <Link href="https://www.npmjs.com/package/babel-minify-webpack-plugin">
+                  babel-minify-webpack-plugin
+                </Link>
               </ListItem>
             </Appear>
           </List>
-          <Appear>
-            <CodePane lang="javascript">
-              {`let foo;
-
-// Not free due to "foo" above, not ok to replace
-if (foo === 'bar') { ... }
-
-// Free since you don't refer to "bar", ok to replace
-if (process.env.NODE_ENV === 'development') {
-  console.log('bar');
-}`}
-            </CodePane>
-          </Appear>
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
@@ -422,15 +429,6 @@ function isVendor({ resource }) {
               </ListItem>
             </Appear>
           </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>React Through a CDN</Heading>
-          <CodePane
-            lang="jsx"
-            source={require("raw-loader!../examples/cdn.js")}
-            margin="20px auto"
-          />
         </Slide>
 
         <Slide transition={slideTransition}>
