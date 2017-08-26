@@ -23,8 +23,8 @@ import {
   TableRow,
   TableHeaderItem,
   TableItem,
-  S,
-  Text
+  S
+  //Text
 } from "spectacle";
 
 // Import image preloader util
@@ -72,10 +72,10 @@ export default class Presentation extends React.Component {
           <Heading size={1}>Agenda</Heading>
           <List>
             <Appear>
-              <ListItem>Little background</ListItem>
+              <ListItem>Background</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Live demos</ListItem>
+              <ListItem>Techniques</ListItem>
             </Appear>
             <Appear>
               <ListItem>Universal Apps</ListItem>
@@ -253,11 +253,11 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>Optimization</Heading>
-          <CodePane
-            lang="js"
-            source={require("raw-loader!../examples/optimization.js")}
-            margin="20px auto"
-          />
+          <List>
+            <Appear>
+              <ListItem>TODO: Babel bits from the book</ListItem>
+            </Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -287,14 +287,6 @@ if (process.env.NODE_ENV === 'development') {
 }`}
             </CodePane>
           </Appear>
-          <List>
-            <Appear>
-              <ListItem>
-                <b>Exercise:</b> Set up <code>DefinePlugin</code> and replace as
-                above
-              </ListItem>
-            </Appear>
-          </List>
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
@@ -579,11 +571,9 @@ function isVendor({ resource }) {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Appear>
-            <Heading size={2} caps fit margin="12px 0">
-              Until now, this has been painful
-            </Heading>
-          </Appear>
+          <Heading size={2} caps fit margin="12px 0">
+            Until now, this has been painful
+          </Heading>
 
           <Appear>
             <Heading size={2} caps fit margin="12px 0">
@@ -617,13 +607,6 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
               like traditional web apps
             </Heading>
           </Appear>
-
-          <Appear>
-            <Heading size={6} margin="20px 0">
-              Thanks{" "}
-              <span style={{ color: "rgb(235, 78, 145)" }}>@faceyspacey</span>
-            </Heading>
-          </Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -635,7 +618,9 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
               <ListItem>imports 2 files: js + stylesheet chunks</ListItem>
             </Appear>
             <Appear>
-              <ListItem>babel plugin generates require.resolveWeak</ListItem>
+              <ListItem>
+                babel plugin generates <code>require.resolveWeak</code>
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>
@@ -661,15 +646,33 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
               checkout: https://github.com/faceyspacey/universal-render
             </Heading>
           </Appear>
+
+          <Appear>
+            <Heading size={6} margin="20px 0">
+              Thanks{" "}
+              <span style={{ color: "rgb(235, 78, 145)" }}>@faceyspacey</span>
+            </Heading>
+          </Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={2}>Hot Module Replacement</Heading>
-          <CodePane
-            lang="jsx"
-            source={require("raw-loader!../examples/hmr.js")}
-            margin="20px auto"
-          />
+          <List>
+            <Appear>
+              <ListItem>
+                <Link href="https://survivejs.com/webpack/appendices/hmr-with-react/">
+                  It is complicated
+                </Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Option: hard refresh and rehydration from{" "}
+                <code>localStorage</code> (loses state local to components but
+                not application state)
+              </ListItem>
+            </Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
