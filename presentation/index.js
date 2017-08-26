@@ -67,19 +67,170 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
+          <Heading size={1}>Agenda</Heading>
+          <List>
+            <Appear>
+              <ListItem>Little background</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Live demos</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Universal Apps</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>QA</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading caps size={1}>
+            Build Tools
+          </Heading>
+          <Layout>
+            <Table>
+              <thead>
+                <TableRow>
+                  <TableHeaderItem>1st Gen.</TableHeaderItem>
+                  <TableHeaderItem>2nd Gen.</TableHeaderItem>
+                  <TableHeaderItem>3rd Gen.</TableHeaderItem>
+                </TableRow>
+              </thead>
+              <tbody>
+                <TableRow>
+                  <TableItem>Make</TableItem>
+                  <TableItem>Grunt</TableItem>
+                  <TableItem>Browserify</TableItem>
+                </TableRow>
+                <TableRow>
+                  <TableItem />
+                  <TableItem>Gulp</TableItem>
+                  <TableItem>
+                    <b>Webpack</b>
+                  </TableItem>
+                </TableRow>
+                <TableRow>
+                  <TableItem />
+                  <TableItem>Broccoli</TableItem>
+                  <TableItem>FuseBox</TableItem>
+                </TableRow>
+              </tbody>
+            </Table>
+          </Layout>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>Brief History of Webpack</Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                2012 March - Tobias starts developing webpack due to a rejected
+                PR (code splitting)
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                2013 - <b>react-hot-loader</b> appears
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                2014 February - Webpack 1. Noticed by Pete Hunt of Instagram
+                (popularity++)
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>Brief History of Webpack</Heading>
+          <List>
+            <Appear>
+              <ListItem>2016 July - Webpack core team established</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                2016 October -{" "}
+                <Link href="https://opencollective.com/webpack">
+                  Webpack Open Collective
+                </Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>2017 January - Webpack 2</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                2017 March - Open Collective reached $80k annual budget
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>2017 June - Webpack 3</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                2017 August - Annual budget roughly $300k (OC, Mozilla grant,
+                support contract for Trivago)
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>Optimization</Heading>
+          <CodePane
+            lang="jsx"
+            source={require("raw-loader!../examples/demo.jsx")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>Bundle splitting</Heading>
+          <CodePane
+            lang="jsx"
+            source={require("raw-loader!../examples/demo.jsx")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>Code splitting</Heading>
+          <CodePane
+            lang="jsx"
+            source={require("raw-loader!../examples/demo.jsx")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>React Through a CDN</Heading>
+          <CodePane
+            lang="jsx"
+            source={require("raw-loader!../examples/demo.jsx")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide transition={slideTransition}>
           <Heading size={2} caps fit>
             Inline JavaScript
           </Heading>
 
-          <Heading size={2} caps fit textColor="tertiary">
-            AJAX (async)
-          </Heading>
+          <Appear>
+            <Heading size={2} caps fit textColor="tertiary">
+              AJAX (async)
+            </Heading>
+          </Appear>
 
-          <Heading size={2} caps fit>
-            <S type="strikethrough">Single Page Applications</S>
-          </Heading>
+          <Appear>
+            <Heading size={2} caps fit>
+              <S type="strikethrough">Single Page Applications</S>
+            </Heading>
+          </Appear>
 
-          <Appear fid="5">
+          <Appear>
             <Heading size={2} caps fit textColor="tertiary">
               Universal Apps
             </Heading>
@@ -88,25 +239,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="black">
           <BlockQuote>
-            <Quote>For "power users" the SPA is dead.</Quote>
-          </BlockQuote>
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="black">
-          <BlockQuote>
-            <Quote>
-              If you're not universally rendering on the server you're doing it
-              "wrong."
-            </Quote>
-          </BlockQuote>
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="black">
-          <BlockQuote>
-            <Quote>
-              You are losing money for you, your clients, your employers. All
-              hail the Google god.
-            </Quote>
+            <Quote>For power users the SPA is dead (SEO!).</Quote>
           </BlockQuote>
         </Slide>
 
@@ -166,7 +299,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2} caps fit>
-            Our tools are heaving than ever.
+            Our sites are heavier than ever.
           </Heading>
           <Appear fid="2">
             <Heading size={2} caps textColor="tertiary">
@@ -185,12 +318,12 @@ export default class Presentation extends React.Component {
           </Appear>
           <Appear fid="3">
             <Heading size={2} caps fit>
-              it also compounds the Google problem
+              it also compounds the SEO problem
             </Heading>
           </Appear>
           <Appear fid="3">
             <Heading size={2} caps fit textColor="tertiary">
-              since Google likes fast sites
+              since search engines like fast sites
             </Heading>
           </Appear>
         </Slide>
@@ -330,87 +463,12 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading caps fit size={1}>
-            Build Tools
-          </Heading>
-          <Layout>
-            <Table>
-              <thead>
-                <TableRow>
-                  <TableHeaderItem>1st Gen.</TableHeaderItem>
-                  <TableHeaderItem>2nd Gen.</TableHeaderItem>
-                  <TableHeaderItem>3rd Gen.</TableHeaderItem>
-                </TableRow>
-              </thead>
-              <tbody>
-                <TableRow>
-                  <TableItem>Make</TableItem>
-                  <TableItem>Grunt</TableItem>
-                  <TableItem>Browserify</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem />
-                  <TableItem>Gulp</TableItem>
-                  <TableItem>Webpack</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem />
-                  <TableItem>Broccoli</TableItem>
-                  <TableItem>JSPM</TableItem>
-                </TableRow>
-              </tbody>
-            </Table>
-          </Layout>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={1}>The Problem of Template</Heading>
-          <List>
-            <Appear>
-              <ListItem>Problem 1</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Problem 2</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                <Link href="https://facebook.github.io/flux/">Flux</Link> -
-                Actions, stores, dispatcher
-              </ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Image src={images.survivejs} margin="40px auto" height="324px" />
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>Solution</Heading>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={4}>Minimal Demo</Heading>
+          <Heading size={2}>Hot Module Replacement</Heading>
           <CodePane
             lang="jsx"
             source={require("raw-loader!../examples/demo.jsx")}
             margin="20px auto"
           />
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={1}>Exercises</Heading>
-          <List>
-            <Appear>
-              <ListItem>Exercise 1</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>*Exercise 2</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>**Exercise 3</ListItem>
-            </Appear>
-          </List>
         </Slide>
 
         <Slide transition={slideTransition}>
