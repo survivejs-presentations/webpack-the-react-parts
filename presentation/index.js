@@ -88,8 +88,11 @@ export default class Presentation extends React.Component {
           <List>
             <Appear>
               <ListItem>
-                2012 March - Tobias starts developing webpack due to a rejected
-                PR (code splitting)
+                2012 March - Tobias starts developing webpack due to{" "}
+                <Link href="https://github.com/medikoo/modules-webmake/issues/7">
+                  an abandoned PR
+                </Link>{" "}
+                (code splitting)
               </ListItem>
             </Appear>
             <Appear>
