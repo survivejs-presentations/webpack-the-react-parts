@@ -12,17 +12,17 @@ import {
   //Fill,
   Heading,
   Image,
-  Layout,
+  //Layout,
   Link,
   List,
   ListItem,
   //Markdown,
   Quote,
   Slide,
-  Table,
-  TableRow,
-  TableHeaderItem,
-  TableItem,
+  //Table,
+  //TableRow,
+  //TableHeaderItem,
+  //TableItem,
   S
   //Text
 } from "spectacle";
@@ -84,42 +84,6 @@ export default class Presentation extends React.Component {
               <ListItem>QA</ListItem>
             </Appear>
           </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading caps size={1}>
-            Build Tools
-          </Heading>
-          <Layout>
-            <Table>
-              <thead>
-                <TableRow>
-                  <TableHeaderItem>1st Gen.</TableHeaderItem>
-                  <TableHeaderItem>2nd Gen.</TableHeaderItem>
-                  <TableHeaderItem>3rd Gen.</TableHeaderItem>
-                </TableRow>
-              </thead>
-              <tbody>
-                <TableRow>
-                  <TableItem>Make</TableItem>
-                  <TableItem>Grunt</TableItem>
-                  <TableItem>Browserify</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem />
-                  <TableItem>Gulp</TableItem>
-                  <TableItem>
-                    <b>Webpack</b>
-                  </TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem />
-                  <TableItem>Broccoli</TableItem>
-                  <TableItem>FuseBox</TableItem>
-                </TableRow>
-              </tbody>
-            </Table>
-          </Layout>
         </Slide>
 
         <Slide transition={slideTransition}>
