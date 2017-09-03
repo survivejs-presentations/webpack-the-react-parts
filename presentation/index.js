@@ -80,9 +80,6 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>Universal Apps</ListItem>
             </Appear>
-            <Appear>
-              <ListItem>QA</ListItem>
-            </Appear>
           </List>
         </Slide>
 
