@@ -18,12 +18,12 @@ import {
   ListItem,
   //Markdown,
   Quote,
-  Slide,
+  Slide
   //Table,
   //TableRow,
   //TableHeaderItem,
   //TableItem,
-  S
+  //S
   //Text
 } from "spectacle";
 
@@ -132,6 +132,14 @@ export default class Presentation extends React.Component {
               </ListItem>
             </Appear>
             <Appear>
+              <ListItem>
+                2017 April -<Link href="https://survivejs.com/webpack/">
+                  SurviveJS - Webpack
+                </Link>{" "}
+                goes paper
+              </ListItem>
+            </Appear>
+            <Appear>
               <ListItem>2017 June - Webpack 3</ListItem>
             </Appear>
             <Appear>
@@ -216,44 +224,108 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>Optimization</Heading>
+          <Heading size={2}>
+            {" "}<Link href="https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types">
+              babel-plugin-transform-react-remove-prop-types
+            </Link>
+          </Heading>
           <List>
             <Appear>
               <ListItem>
-                <Link href="https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types">
-                  babel-plugin-transform-react-remove-prop-types
-                </Link>
+                Wrap <code>propTypes</code> so that they are used only during
+                development
               </ListItem>
             </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/optimizing/environment-variables">
+              Feature Flags
+            </Link>
+          </Heading>
+          <List>
             <Appear>
               <ListItem>
-                <Link href="https://survivejs.com/webpack/optimizing/environment-variables">
-                  webpack <code>DefinePlugin</code>
-                </Link>
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                <Link href="https://www.npmjs.com/package/babel-plugin-transform-inline-environment-variables">
-                  babel-plugin-transform-inline-environment-variables
-                </Link>
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
+                <code>DefinePlugin</code> replaces free variables. Babel can do
+                this too using{" "}
                 <Link href="https://www.npmjs.com/package/babel-plugin-minify-replace">
                   babel-plugin-minify-replace
-                </Link>
+                </Link>{" "}
+                for example
+              </ListItem>
+            </Appear>
+          </List>
+          <Appear>
+            <CodePane lang="javascript">
+              {`let foo;
+
+// Not free due to "foo" above, not ok to replace
+if (foo === 'bar') { ... }
+
+// Free since you don't refer to "bar", ok to replace
+if (process.env.NODE_ENV === 'development') {
+  console.log('bar');
+}`}
+            </CodePane>
+          </Appear>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Minifying
+          </Heading>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="black">
+          <BlockQuote>
+            <Quote>
+              Minifying === How to convert code into a smaller form without
+              losing anything essential?
+            </Quote>
+          </BlockQuote>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://survivejs.com/webpack/optimizing/minifying">
+              Minifying
+            </Link>
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                Certain unsafe transformations can <b>break</b> code
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Minify using{" "}
-                <Link href="https://www.npmjs.com/package/uglifyjs-webpack-plugin">
-                  uglifyjs-webpack-plugin
+                <Link href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">
+                  UglifyJs
                 </Link>,{" "}
                 <Link href="https://www.npmjs.com/package/babel-minify-webpack-plugin">
                   babel-minify-webpack-plugin
+                </Link>,{" "}
+                <Link href="https://www.npmjs.com/package/webpack-closure-compiler">
+                  Closure Compiler
+                </Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                CSS can be minified too through{" "}
+                <Link href="https://www.npmjs.com/package/clean-css">
+                  clean-css
+                </Link>{" "}
+                and <Link href="http://cssnano.co">cssnano</Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Same for HTML. See{" "}
+                <Link href="https://www.npmjs.com/package/posthtml">
+                  posthtml
                 </Link>
               </ListItem>
             </Appear>
@@ -262,7 +334,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition} bgColor="secondary">
           <Heading size={2} textColor="tertiary">
-            Bundle/code Splitting
+            Bundle Splitting
           </Heading>
         </Slide>
 
@@ -327,6 +399,12 @@ function isVendor({ resource }) {
     resource.match(/\\.js$/);
 }`}
           </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Code Splitting
+          </Heading>
         </Slide>
 
         <Slide transition={slideTransition}>
@@ -408,26 +486,14 @@ function isVendor({ resource }) {
 
           <Appear>
             <Heading size={2} caps fit>
-              <S type="strikethrough">Single Page Applications</S>
-            </Heading>
-          </Appear>
-
-          <Appear>
-            <Heading size={2} caps fit textColor="tertiary">
-              Universal Apps
+              Single Page Applications
             </Heading>
           </Appear>
         </Slide>
 
-        <Slide transition={slideTransition} bgColor="black">
-          <BlockQuote>
-            <Quote>For power users the SPA is dead (SEO!).</Quote>
-          </BlockQuote>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2} caps fit textColor="tertiary">
-            Enter "Universal"
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Universal Apps
           </Heading>
         </Slide>
 
@@ -552,15 +618,13 @@ function isVendor({ resource }) {
           <Appear>
             <CodePane
               lang="javascript"
-              source={`
-import { flushChunkNames } from 'react-universal-component/server'
+              source={`import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
 
 const app = ReactDOMServer.renderToString(<App />)
 const { js, styles, cssHash } = flushChunks(webpackStats, {
   chunkNames: flushChunkNames()
-})
-          `}
+})`}
             />
           </Appear>
 
@@ -618,6 +682,24 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
         </Slide>
 
         <Slide transition={slideTransition}>
+          <Link href="https://www.survivejs.com/">
+            <Heading size={1}>SurviveJS</Heading>
+          </Link>
+          <Image src={images.survivejs} margin="0px auto 40px" height="524px" />
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="tertiary">
+          <Heading size={1} caps fit textColor="primary">
+            Made in Europe by
+          </Heading>
+          <Link href="https://twitter.com/bebraw">
+            <Heading caps fit size={2} textColor="secondary">
+              Juho Vepsäläinen
+            </Heading>
+          </Link>
+        </Slide>
+
+        <Slide transition={slideTransition}>
           <Heading size={2}>Hot Module Replacement</Heading>
           <List>
             <Appear>
@@ -635,24 +717,6 @@ const { js, styles, cssHash } = flushChunks(webpackStats, {
               </ListItem>
             </Appear>
           </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Link href="https://www.survivejs.com/">
-            <Heading size={1}>SurviveJS</Heading>
-          </Link>
-          <Image src={images.survivejs} margin="0px auto 40px" height="524px" />
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="tertiary">
-          <Heading size={1} caps fit textColor="primary">
-            Made in Finland by
-          </Heading>
-          <Link href="https://twitter.com/bebraw">
-            <Heading caps fit size={2} textColor="secondary">
-              Juho Vepsäläinen
-            </Heading>
-          </Link>
         </Slide>
       </Deck>
     );
