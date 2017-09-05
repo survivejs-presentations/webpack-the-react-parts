@@ -625,8 +625,10 @@ function isVendor({ resource }) {
           </List>
 
           <Appear>
-            <Heading size={2} fit textColor="tertiary" margin="20px 0">
-              checkout: https://github.com/faceyspacey/universal-render
+            <Heading size={6} margin="20px 0">
+              <Link href="https://github.com/faceyspacey/universal-demo">
+                Check demo!
+              </Link>
             </Heading>
           </Appear>
 
