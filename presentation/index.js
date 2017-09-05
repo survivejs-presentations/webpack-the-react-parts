@@ -225,22 +225,6 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            {" "}<Link href="https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types">
-              babel-plugin-transform-react-remove-prop-types
-            </Link>
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>
-                Wrap <code>propTypes</code> so that they are used only during
-                development
-              </ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
             <Link href="https://survivejs.com/webpack/optimizing/environment-variables">
               Feature Flags
             </Link>
@@ -272,10 +256,20 @@ if (process.env.NODE_ENV === 'development') {
           </Appear>
         </Slide>
 
-        <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
-            Minifying
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            {" "}<Link href="https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types">
+              babel-plugin-transform-react-remove-prop-types
+            </Link>
           </Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                Wrap <code>propTypes</code> so that they are used only during
+                development
+              </ListItem>
+            </Appear>
+          </List>
         </Slide>
 
         <Slide transition={slideTransition} bgColor="black">
@@ -596,43 +590,6 @@ function isVendor({ resource }) {
             source={require("raw-loader!../examples/ssr-component.js")}
             margin="20px auto"
           />
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2} caps fit margin="12px 0">
-            Until now, this has been painful
-          </Heading>
-
-          <Appear>
-            <Heading size={2} caps fit margin="12px 0">
-              "Universal" now does the work of transporting rendered chunks
-            </Heading>
-          </Appear>
-
-          <Appear>
-            <Heading size={2} caps fit margin="12px 0">
-              to the client for speedy synchronous renders
-            </Heading>
-          </Appear>
-
-          <Appear>
-            <CodePane
-              lang="javascript"
-              source={`import { flushChunkNames } from 'react-universal-component/server'
-import flushChunks from 'webpack-flush-chunks'
-
-const app = ReactDOMServer.renderToString(<App />)
-const { js, styles, cssHash } = flushChunks(webpackStats, {
-  chunkNames: flushChunkNames()
-})`}
-            />
-          </Appear>
-
-          <Appear>
-            <Heading size={2} caps fit textColor="tertiary" margin="20px 0">
-              like traditional web apps
-            </Heading>
-          </Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
