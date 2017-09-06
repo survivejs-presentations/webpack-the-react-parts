@@ -75,7 +75,7 @@ export default class Presentation extends React.Component {
               <ListItem>Background</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Techniques</ListItem>
+              <ListItem>Optimizing</ListItem>
             </Appear>
             <Appear>
               <ListItem>Universal Apps</ListItem>
@@ -126,6 +126,12 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>2017 January - Webpack 2</ListItem>
             </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={1}>Brief History of Webpack</Heading>
+          <List>
             <Appear>
               <ListItem>
                 2017 March - Open Collective reached $80k annual budget
@@ -269,6 +275,14 @@ if (process.env.NODE_ENV === 'development') {
                 development
               </ListItem>
             </Appear>
+            <Appear>
+              <ListItem>
+                <Link href="https://www.npmjs.com/package/prop-types">
+                  prop-types
+                </Link>{" "}
+                does the same <b>field</b> level
+              </ListItem>
+            </Appear>
           </List>
         </Slide>
 
@@ -327,7 +341,7 @@ if (process.env.NODE_ENV === 'development') {
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
+          <Heading size={1} textColor="tertiary">
             Bundle Splitting
           </Heading>
         </Slide>
@@ -396,7 +410,7 @@ function isVendor({ resource }) {
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
+          <Heading size={1} textColor="tertiary">
             Code Splitting
           </Heading>
         </Slide>
@@ -486,7 +500,7 @@ function isVendor({ resource }) {
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={2} textColor="tertiary">
+          <Heading size={1} textColor="tertiary">
             Universal Apps
           </Heading>
         </Slide>
