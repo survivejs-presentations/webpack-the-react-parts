@@ -693,11 +693,13 @@ function isVendor({ resource }) {
           </Heading>
           <List>
             <Appear>
-              <ListItem>imports 2 files: js + stylesheet chunks</ListItem>
+              <ListItem>
+                Imports 2 files: JavaScript and stylesheet chunks
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                babel plugin generates <code>require.resolveWeak</code>
+                Babel plugin generates <code>require.resolveWeak</code>
               </ListItem>
             </Appear>
             <Appear>
@@ -712,9 +714,8 @@ function isVendor({ resource }) {
             </Appear>
             <Appear>
               <ListItem>
-                {
-                  "Universal.render() === single entry point for both client/server"
-                }
+                <code>Universal.render()</code> === Single entry point for both
+                client and server
               </ListItem>
             </Appear>
           </List>
