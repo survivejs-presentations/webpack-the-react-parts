@@ -75,7 +75,10 @@ export default class Presentation extends React.Component {
               <ListItem>Background</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Optimizing</ListItem>
+              <ListItem>Related Solutions</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Techniques</ListItem>
             </Appear>
             <Appear>
               <ListItem>Universal Apps</ListItem>
@@ -157,27 +160,105 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={2} textColor="tertiary">
+            Related Solutions
+          </Heading>
+        </Slide>
+
         <Slide transition={slideTransition}>
-          <Heading size={1}>Related Solutions</Heading>
+          <Heading size={2} fit>
+            <Link href="https://www.npmjs.com/package/create-react-app">
+              create-react-app (CRA)
+            </Link>{" "}
+            by Facebook
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>webpack based setup out of the box</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Consume as a dependency</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <b>eject</b> to get access to configuration
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                See also{" "}
+                <Link href="https://www.npmjs.com/package/react-app-rewired">
+                  react-app-rewired
+                </Link>
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://www.npmjs.com/package/nwb">nwb</Link> by Jonny
+            Buchanan
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Less opinionated than CRA</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Not just React</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>A toolkit to improve your development flow</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://github.com/NYTimes/kyt">kyt</Link> by New York
+            Times
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Closer to nwb</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Provides starter-kyts</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Covers whole stack</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            <Link href="https://www.npmjs.com/package/neutrino">
+              neutrino
+            </Link>{" "}
+            by Eli Perelman (Mozilla)
+          </Heading>
           <List>
             <Appear>
               <ListItem>
-                <Link href="https://www.npmjs.com/package/create-react-app">
-                  create-react-app
+                Similar goal as for <b>webpack-blocks</b>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Revolves around the idea of <b>presets</b>. See{" "}
+                <Link href="https://neutrino.js.org/presets/neutrino-preset-react/">
+                  React one
                 </Link>{" "}
-                by Facebook
+                for an example.
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                <Link href="https://www.npmjs.com/package/nwb">nwb</Link> by
-                Jonny Buchanan
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                <Link href="https://github.com/NYTimes/kyt">kyt</Link> by New
-                York Times
+                <Link href="https://survivejs.com/blog/neutrino-interview/">
+                  Read {`Eli's`} interview to learn more
+                </Link>
               </ListItem>
             </Appear>
           </List>
