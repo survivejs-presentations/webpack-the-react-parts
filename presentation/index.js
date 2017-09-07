@@ -43,8 +43,7 @@ const images = mapValues(
   {
     commonschunk1: require("../images/commonschunk1.png"),
     codeSplitting: require("../images/codesplitting.png"),
-    survivejs: require("../images/survivejs.png"),
-    ssrSplitting: require("../images/react-router-ssr-splitting.png")
+    survivejs: require("../images/survivejs.png")
   },
   v => v.replace("/", "")
 );
@@ -626,15 +625,9 @@ function isVendor({ resource }) {
           </Appear>
         </Slide>
 
-        <Slide transition={slideTransition} bgColor="secondary">
-          <Heading size={1} textColor="tertiary">
-            Universal Apps
-          </Heading>
-        </Slide>
-
         <Slide transition={slideTransition}>
           <Heading size={2} caps fit textColor="black">
-            The problem: not SSR, not Code-Splitting
+            The problem: not SSR, not code splitting
           </Heading>
           <Appear>
             <Heading size={5} caps fit textColor="tertiary">
@@ -650,7 +643,7 @@ function isVendor({ resource }) {
 
         <Slide transition={slideTransition}>
           <Heading size={2} caps fit textColor="tertiary">
-            SSR + SPLITTING
+            SSR + Code Splitting
           </Heading>
           <Appear>
             <Heading size={2} textColor="black">
@@ -661,22 +654,6 @@ function isVendor({ resource }) {
             <Heading size={2} caps fit textColor="tertiary">
               UNIVERSAL RENDERING
             </Heading>
-          </Appear>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={10} textColor="black">
-            Here's what the React Router docs have to say about it
-          </Heading>
-          <Appear>
-            <Image
-              src={images.ssrSplitting}
-              margin="10px auto"
-              height="550px"
-            />
-          </Appear>
-          <Appear>
-            <Quote textColor="tertiary">#ssr #splitting #godspeed</Quote>
           </Appear>
         </Slide>
 
