@@ -274,11 +274,10 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear>
               <ListItem>
-                Revolves around the idea of <b>presets</b>. See{" "}
+                Revolves around the idea of <b>presets</b>. See the{" "}
                 <Link href="https://neutrino.js.org/presets/neutrino-preset-react/">
                   React one
-                </Link>{" "}
-                for an example.
+                </Link>.
               </ListItem>
             </Appear>
             <Appear>
