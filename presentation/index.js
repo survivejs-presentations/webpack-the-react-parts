@@ -364,15 +364,25 @@ export default class Presentation extends React.Component {
           </List>
           <Appear>
             <CodePane lang="javascript">
-              {`let foo;
-
-// Not free due to "foo" above, not ok to replace
-if (foo === 'bar') { ... }
-
-// Free since you don't refer to "bar", ok to replace
+              {`// Free since you don't refer to "bar", ok to replace
 if (process.env.NODE_ENV === 'development') {
   console.log('bar');
 }`}
+            </CodePane>
+          </Appear>
+          <Appear>
+            <div>Configuration</div>
+          </Appear>
+          <Appear>
+            <CodePane lang="javascript">
+              {`module.exports = {
+  ...
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": \`"production"\`,
+    }),
+  ]
+};`}
             </CodePane>
           </Appear>
         </Slide>
@@ -490,7 +500,7 @@ if (process.env.NODE_ENV === 'development') {
       name: "vendor",
       minChunks: isVendor,
     }),
-  ]
+  ],
 };
 
 function isVendor({ resource }) {
