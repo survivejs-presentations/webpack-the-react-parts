@@ -234,6 +234,34 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2} fit>
+            <Link href="https://www.npmjs.com/package/webpack-blocks">
+              webpack-blocks
+            </Link>{" "}
+            by Andy Wermke
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                Andy read{" "}
+                <Link href="https://survivejs.com/webpack/">my book</Link>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Compose configuration out of "blocks"</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                You can also do this yourself with{" "}
+                <Link href="https://www.npmjs.com/package/webpack-merge">
+                  webpack-merge
+                </Link>
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
             <Link href="https://www.npmjs.com/package/neutrino">
               neutrino
             </Link>{" "}
@@ -262,6 +290,12 @@ export default class Presentation extends React.Component {
               </ListItem>
             </Appear>
           </List>
+        </Slide>
+
+        <Slide transition={slideTransition} bgColor="secondary">
+          <Heading size={1} textColor="tertiary">
+            Techniques
+          </Heading>
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
