@@ -773,7 +773,7 @@ function isVendor({ resource }) {
           <br />
           <Link href="https://github.com/survivejs-demos/webpack-the-react-parts">
             <Heading size={4} textColor="tertiary">
-              Check the demo at GitHub
+              Check the slides and demo at GitHub
             </Heading>
           </Link>
         </Slide>
