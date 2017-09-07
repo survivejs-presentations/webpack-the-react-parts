@@ -668,7 +668,7 @@ function isVendor({ resource }) {
           </Appear>
           <Appear fid="2">
             <Heading size={2} caps textColor="black">
-              doesn't just
+              {"doesn't"} just
             </Heading>
           </Appear>
           <Appear fid="2">
