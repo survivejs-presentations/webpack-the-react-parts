@@ -754,25 +754,27 @@ function isVendor({ resource }) {
           <Appear>
             <Heading size={6} margin="20px 0">
               Thanks{" "}
-              <span style={{ color: "rgb(235, 78, 145)" }}>@faceyspacey</span>
+              <Link href="https://twitter.com/faceyspacey">
+                <span style={{ color: "rgb(235, 78, 145)" }}>@faceyspacey</span>
+              </Link>
             </Heading>
           </Appear>
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Link href="https://www.survivejs.com/">
-            <Heading size={1}>SurviveJS</Heading>
+          <Link href="https://www.survivejs.com/webpack/">
+            <Heading size={1}>SurviveJS - Webpack</Heading>
           </Link>
-          <Image src={images.survivejs} margin="0px auto 40px" height="524px" />
-        </Slide>
-
-        <Slide transition={slideTransition} bgColor="tertiary">
-          <Heading size={1} caps fit textColor="primary">
-            Made in Europe by
-          </Heading>
+          <Image src={images.survivejs} margin="0px auto 40px" height="324px" />
           <Link href="https://twitter.com/bebraw">
-            <Heading caps fit size={2} textColor="secondary">
-              Juho Vepsäläinen
+            <Heading size={2} textColor="secondary">
+              by Juho Vepsäläinen
+            </Heading>
+          </Link>
+          <br />
+          <Link href="https://github.com/survivejs-demos/webpack-the-react-parts">
+            <Heading size={4} textColor="tertiary">
+              Check the demo at GitHub
             </Heading>
           </Link>
         </Slide>
