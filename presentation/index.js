@@ -377,30 +377,6 @@ if (process.env.NODE_ENV === 'development') {
           </Appear>
         </Slide>
 
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
-            {" "}<Link href="https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types">
-              babel-plugin-transform-react-remove-prop-types
-            </Link>
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>
-                Wrap <code>propTypes</code> so that they are used only during
-                development
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                <Link href="https://www.npmjs.com/package/prop-types">
-                  prop-types
-                </Link>{" "}
-                does the same <b>field</b> level
-              </ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
         <Slide transition={slideTransition} bgColor="black">
           <BlockQuote>
             <Quote>
