@@ -618,6 +618,12 @@ function isVendor({ resource }) {
               Single Page Applications
             </Heading>
           </Appear>
+
+          <Appear>
+            <Heading size={2} caps fit textColor="tertiary">
+              Server Side Rendering (SSR)
+            </Heading>
+          </Appear>
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
