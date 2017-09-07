@@ -477,16 +477,36 @@ if (process.env.NODE_ENV === 'development') {
   ...
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
+      name: "vendor",
       minChunks: isVendor,
     }),
   ]
 };
 
 function isVendor({ resource }) {
-  return resource && resource.indexOf('node_modules') >= 0 &&
+  return resource && resource.indexOf("node_modules") >= 0 &&
     resource.match(/\\.js$/);
 }`}
+          </CodePane>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            <code>CommonsChunkPlugin</code> and <code>manifest</code>
+          </Heading>
+          <CodePane lang="javascript">
+            {`module.exports = {
+  ...
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: isVendor,
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "manifest"
+    }),
+  ]
+};`}
           </CodePane>
         </Slide>
 
@@ -511,7 +531,7 @@ function isVendor({ resource }) {
           </Heading>
           <CodePane lang="javascript">
             {`import(
-  /* webpackChunkName: "optional-name" */ './module'
+  /* webpackChunkName: "optional-name" */ "./module"
 ).then(
   module => {...}
 ).catch(
