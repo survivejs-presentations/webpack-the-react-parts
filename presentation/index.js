@@ -283,7 +283,7 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>
                 <Link href="https://survivejs.com/blog/neutrino-interview/">
-                  Read {`Eli's`} interview to learn more
+                  Read {"Eli's"} interview to learn more
                 </Link>
               </ListItem>
             </Appear>
