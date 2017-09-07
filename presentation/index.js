@@ -400,7 +400,7 @@ if (process.env.NODE_ENV === 'development') {
             </Appear>
             <Appear>
               <ListItem>
-                <Link href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">
+                <Link href="https://www.npmjs.com/package/uglifyjs-webpack-plugin">
                   UglifyJs
                 </Link>,{" "}
                 <Link href="https://www.npmjs.com/package/babel-minify-webpack-plugin">
