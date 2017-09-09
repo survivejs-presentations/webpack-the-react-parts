@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 
 const UniversalComponent = universal(props => import(`./${props.page}`));
 
-const MyComponent = ({ page }) =>
+const MyComponent = ({ page }) => (
   <div>
     <UniversalComponent page={page} />
-  </div>;
+  </div>
+);
 
 export default connect(({ page }) => ({ page }))(MyComponent);

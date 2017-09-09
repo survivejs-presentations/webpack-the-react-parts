@@ -657,39 +657,8 @@ function isVendor({ resource }) {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2} caps fit>
-            Our sites are heavier than ever.
-          </Heading>
-          <Appear fid="2">
-            <Heading size={2} caps textColor="tertiary">
-              not splitting
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={2} caps textColor="black">
-              {"doesn't"} just
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={2} caps textColor="tertiary">
-              increase bounce rates
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={2} caps fit>
-              it also compounds the SEO problem
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={2} caps fit textColor="tertiary">
-              since search engines like fast sites
-            </Heading>
-          </Appear>
-        </Slide>
-
-        <Slide transition={slideTransition}>
           <Heading size={2} fit>
-            SSR with Code Splitting on the Server Side
+            Universal Rendering on the Server Side
           </Heading>
           <CodePane
             lang="js"
@@ -700,7 +669,7 @@ function isVendor({ resource }) {
 
         <Slide transition={slideTransition}>
           <Heading size={2} fit>
-            SSR with Code Splitting on Components
+            Universal Rendering on Component Level
           </Heading>
           <CodePane
             lang="js"
@@ -716,7 +685,7 @@ function isVendor({ resource }) {
           <List>
             <Appear>
               <ListItem>
-                Imports 2 files: JavaScript and stylesheet chunks
+                Imports two files: JavaScript and stylesheet chunks
               </ListItem>
             </Appear>
             <Appear>
@@ -726,12 +695,12 @@ function isVendor({ resource }) {
             </Appear>
             <Appear>
               <ListItem>
-                Component-level state fetching + client rehydration
+                Component-level state fetching and client rehydration
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Route-aware pre-fetching (of both data + chunks!)
+                Route-aware pre-fetching (of both data and chunks!)
               </ListItem>
             </Appear>
             <Appear>
