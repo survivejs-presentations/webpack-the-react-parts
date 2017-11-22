@@ -18,7 +18,7 @@ import {
   ListItem,
   //Markdown,
   Quote,
-  Slide
+  Slide,
   //Table,
   //TableRow,
   //TableHeaderItem,
@@ -35,7 +35,6 @@ import createTheme from "spectacle/lib/themes/default";
 
 // Require CSS
 require("normalize.css");
-require("spectacle/lib/themes/default/index.css");
 require("./custom.css");
 
 const slideTransition = ["slide"];
@@ -43,7 +42,7 @@ const images = mapValues(
   {
     commonschunk1: require("../images/commonschunk1.png"),
     codeSplitting: require("../images/codesplitting.png"),
-    survivejs: require("../images/survivejs.png")
+    survivejs: require("../images/survivejs.png"),
   },
   v => v.replace("/", "")
 );
@@ -54,8 +53,9 @@ const theme = createTheme({
   primary: "white",
   secondary: "black",
   tertiary: "#09b5c4",
-  quartenary: "rgba(255, 219, 169, 0.43)"
+  quarternary: "rgba(255, 219, 169, 0.43)",
 });
+theme.screen.components.codePane.fontSize = "60%";
 
 export default class Presentation extends React.Component {
   render() {
@@ -152,7 +152,7 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear>
               <ListItem>
-                2017 August - Annual budget roughly $300k (OC, Mozilla grant,
+                2017 November - Annual budget roughly $400k (OC, Mozilla grant,
                 support contract for Trivago)
               </ListItem>
             </Appear>
@@ -261,9 +261,7 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2} fit>
-            <Link href="https://www.npmjs.com/package/neutrino">
-              neutrino
-            </Link>{" "}
+            <Link href="https://www.npmjs.com/package/neutrino">neutrino</Link>{" "}
             by Eli Perelman (Mozilla)
           </Heading>
           <List>
@@ -352,36 +350,28 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>
                 <code>DefinePlugin</code> replaces free variables. Babel can do
-                this too using{" "}
-                <Link href="https://www.npmjs.com/package/babel-plugin-minify-replace">
-                  babel-plugin-minify-replace
-                </Link>{" "}
-                for example
+                this too.
               </ListItem>
             </Appear>
           </List>
           <Appear>
-            <CodePane lang="javascript">
-              {`// Free since you don't refer to "bar", ok to replace
-if (process.env.NODE_ENV === 'development') {
-  console.log('bar');
-}`}
-            </CodePane>
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../examples/env-1.js")}
+              margin="20px auto"
+              overflow="overflow"
+            />
           </Appear>
           <Appear>
             <div>Configuration</div>
           </Appear>
           <Appear>
-            <CodePane lang="javascript">
-              {`module.exports = {
-  ...
-  plugins: [
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": \`"production"\`,
-    }),
-  ]
-};`}
-            </CodePane>
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../examples/env-2.js")}
+              margin="20px auto"
+              overflow="overflow"
+            />
           </Appear>
         </Slide>
 
@@ -490,42 +480,24 @@ if (process.env.NODE_ENV === 'development') {
           <Heading size={2} fit>
             <code>CommonsChunkPlugin</code>
           </Heading>
-          <CodePane lang="javascript">
-            {`module.exports = {
-  ...
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: isVendor,
-    }),
-  ],
-};
-
-function isVendor({ resource }) {
-  return resource && resource.indexOf("node_modules") >= 0 &&
-    resource.match(/\\.js$/);
-}`}
-          </CodePane>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../examples/commons.js")}
+            margin="20px auto"
+            overflow="overflow"
+          />
         </Slide>
 
         <Slide transition={slideTransition}>
           <Heading size={2} fit>
             <code>CommonsChunkPlugin</code> and <code>manifest</code>
           </Heading>
-          <CodePane lang="javascript">
-            {`module.exports = {
-  ...
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: isVendor,
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest"
-    }),
-  ]
-};`}
-          </CodePane>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../examples/manifest.js")}
+            margin="20px auto"
+            overflow="overflow"
+          />
         </Slide>
 
         <Slide transition={slideTransition} bgColor="secondary">
@@ -547,16 +519,12 @@ function isVendor({ resource }) {
           <Heading size={2}>
             <code>import()</code>
           </Heading>
-          <CodePane lang="javascript">
-            {`import(
-  /* webpackChunkName: "optional-name" */ "./module"
-).then(
-  module => {...}
-).catch(
-  error => {...}
-);
-`}
-          </CodePane>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../examples/import.js")}
+            margin="20px auto"
+            overflow="overflow"
+          />
           <List>
             <Appear>
               <ListItem>
@@ -580,16 +548,12 @@ function isVendor({ resource }) {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>Code Splitting Output</Heading>
-          <CodePane lang="javascript">
-            {`webpackJsonp([0], {
-  KMic: function(a, b, c) {
-    ...
-  },
-  co9Y: function(a, b, c) {
-    ...
-  },
-});`}
-          </CodePane>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../examples/split-output.js")}
+            margin="20px auto"
+            overflow="overflow"
+          />
           <List>
             <Appear>
               <ListItem>
@@ -664,6 +628,7 @@ function isVendor({ resource }) {
             lang="js"
             source={require("raw-loader!../examples/ssr-with-code-splitting.js")}
             margin="20px auto"
+            overflow="overflow"
           />
         </Slide>
 
@@ -675,6 +640,7 @@ function isVendor({ resource }) {
             lang="js"
             source={require("raw-loader!../examples/ssr-component.js")}
             margin="20px auto"
+            overflow="overflow"
           />
         </Slide>
 
