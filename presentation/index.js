@@ -307,8 +307,8 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://survivejs.com/webpack/optimizing/analyzing-build-statistics">
-              Analyzing Build Statistics
+            <Link href="https://survivejs.com/webpack/optimizing/build-analysis/">
+              Build Analysis
             </Link>
           </Heading>
           <List>
@@ -321,11 +321,6 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>
                 Use <code>--json</code> for statistics
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                Use <code>--profile</code> to capture timing information
               </ListItem>
             </Appear>
             <Appear>
@@ -425,6 +420,9 @@ export default class Presentation extends React.Component {
                   posthtml
                 </Link>
               </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>You can minify images too</ListItem>
             </Appear>
           </List>
         </Slide>
