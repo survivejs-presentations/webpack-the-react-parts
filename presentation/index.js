@@ -166,36 +166,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2} fit>
-            <Link href="https://www.npmjs.com/package/create-react-app">
-              create-react-app (CRA)
-            </Link>{" "}
-            by Facebook
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>webpack based setup out of the box</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Consume as a dependency</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                <b>eject</b> to get access to configuration
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                See also{" "}
-                <Link href="https://www.npmjs.com/package/react-app-rewired">
-                  react-app-rewired
-                </Link>
-              </ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
           <Heading size={2}>
             <Link href="https://www.npmjs.com/package/nwb">nwb</Link> by Jonny
             Buchanan
@@ -282,6 +252,36 @@ export default class Presentation extends React.Component {
               <ListItem>
                 <Link href="https://survivejs.com/blog/neutrino-interview/">
                   Read {"Eli's"} interview to learn more
+                </Link>
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2} fit>
+            <Link href="https://www.npmjs.com/package/create-react-app">
+              create-react-app (CRA)
+            </Link>{" "}
+            by Facebook
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>webpack based setup out of the box</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Consume as a dependency</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <b>eject</b> to get access to configuration
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                See also{" "}
+                <Link href="https://www.npmjs.com/package/react-app-rewired">
+                  react-app-rewired
                 </Link>
               </ListItem>
             </Appear>
