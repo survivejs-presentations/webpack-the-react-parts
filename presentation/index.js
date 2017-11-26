@@ -167,24 +167,6 @@ export default class Presentation extends React.Component {
 
         <Slide transition={slideTransition}>
           <Heading size={2}>
-            <Link href="https://www.npmjs.com/package/nwb">nwb</Link> by Jonny
-            Buchanan
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>Less opinionated than CRA</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Not just React</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>A toolkit to improve your development flow</ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
-          <Heading size={2}>
             <Link href="https://github.com/NYTimes/kyt">kyt</Link> by New York
             Times
           </Heading>
@@ -284,6 +266,24 @@ export default class Presentation extends React.Component {
                   react-app-rewired
                 </Link>
               </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://www.npmjs.com/package/nwb">nwb</Link> by Jonny
+            Buchanan
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Less opinionated than CRA</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Not just React</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>A toolkit to improve your development flow</ListItem>
             </Appear>
           </List>
         </Slide>
