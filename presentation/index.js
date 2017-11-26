@@ -166,24 +166,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={slideTransition}>
-          <Heading size={2}>
-            <Link href="https://github.com/NYTimes/kyt">kyt</Link> by New York
-            Times
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>Closer to nwb</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Provides starter-kyts</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Covers whole stack</ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={slideTransition}>
           <Heading size={2} fit>
             <Link href="https://www.npmjs.com/package/webpack-blocks">
               webpack-blocks
@@ -284,6 +266,24 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear>
               <ListItem>A toolkit to improve your development flow</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={slideTransition}>
+          <Heading size={2}>
+            <Link href="https://github.com/NYTimes/kyt">kyt</Link> by New York
+            Times
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Closer to nwb</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Provides starter-kyts</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Covers whole stack</ListItem>
             </Appear>
           </List>
         </Slide>
